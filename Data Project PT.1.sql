@@ -1,12 +1,4 @@
-SELECT *
-FROM coviddeaths
-WHERE continent is not null or continent != ' '
-ORDER BY 3, 4;
-
-
-SELECT * 
-FROM covidvaccinations
-ORDER BY 3,4;
+-- Select data we are going to be using
 
 -- Total Deaths vs Population
 -- Shows what percentage of population died resulting from COVID 
@@ -23,6 +15,7 @@ SELECT location, date, population, total_cases, (total_cases/population)*100 as 
 FROM coviddeaths
 WHERE location like '%states%'
 ORDER BY 1,2
+
 
 -- Looking at countries with highest infection rate compared to population 
 
@@ -78,14 +71,14 @@ Date datetime,
 Population numeric,
 New_vaccinations numeric,
 RollingPeopleVaccinated numeric
-);
+)
 
 INSERT INTO PercentPopulationVaccinated
 SELECT d.continent, d.location, d.date, d.population, v.new_vaccinations, 
 SUM(v.new_vaccinations) OVER(PARTITION BY d.Location ORDER BY d.location, d.date) as RollingPeopleVaccinated
 FROM coviddeaths d
 JOIN covidvaccinations v ON d.location = v.location AND d.date = v.date
-WHERE d.location NOT IN ('World', 'European Union', 'Europe','North America', 'Asia', 'Africa', 'South America', 'Oceania', 'International');
+WHERE d.location NOT IN ('World', 'European Union', 'Europe','North America', 'Asia', 'Africa', 'South America', 'Oceania', 'International')
 
 SELECT *, (RollingPeopleVaccinated/Population)*100 AS PercentageVaccinated
 FROM PercentPopulationVaccinated
