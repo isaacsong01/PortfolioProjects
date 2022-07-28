@@ -7,10 +7,10 @@ from inventory_definitions import *
 from datetime import datetime, timedelta, time
 from creds import weather_key_id
 
-path = r'C:\Users\ikesu\Uncle Ikes\Onedrive Admin - Uncle Ikes Accounting\ISAAC\3. Monthly Reconciliation Stuff\Tableau Project\Weather Data'
-second_path = r"C:\Users\ikesu\Documents\Tableau Project\Weather Data"
-main_master = r'C:\Users\ikesu\Uncle Ikes\Onedrive Admin - Uncle Ikes Accounting\ISAAC\3. Monthly Reconciliation Stuff\Tableau Project\Weather Data\Main Weather Master.csv'
-second_master = r'C:\Users\ikesu\Uncle Ikes\Onedrive Admin - Uncle Ikes Accounting\ISAAC\3. Monthly Reconciliation Stuff\Tableau Project\Weather Data\Secondary Weather Master.csv'
+path = r''
+second_path = r''
+main_master = r''
+second_master = r''
 pd.set_option('mode.chained_assignment', None)
 pd.set_option('display.max_colwidth', None)
 pd.set_option('display.max_columns', None)
